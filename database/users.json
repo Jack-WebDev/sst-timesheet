@@ -1,0 +1,99 @@
+[
+    {
+        "id": "1",
+        "Name": "Seleke",
+        "Surname": "M",
+        "Email": "selekem@ndt.co.za",
+        "Department": "Engineering",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "2",
+        "Name": "Dakalo",
+        "Surname": "M",
+        "Email": "dakalom@ndt.co.za",
+        "Department": "Marketing",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Emmanuel",
+        "Surname": "O",
+        "Email": "emmanuelo@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Lehlogonolo",
+        "Surname": "M",
+        "Email": "lehlogonolom@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Thabo",
+        "Surname": "M",
+        "Email": "thabom@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Lusanda",
+        "Surname": "R",
+        "Email": "lusandar@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Isaac",
+        "Surname": "M",
+        "Email": "isaacm@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Christinah",
+        "Surname": "M",
+        "Email": "christinahm@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Franklin",
+        "Surname": "M",
+        "Email": "franklinm@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    },
+    {
+        "id": "3",
+        "Name": "Fundi",
+        "Surname": "B",
+        "Email": "fundib@ndt.co.za",
+        "Department": "HR",
+        "Status": "Full-Time",
+        "Role": "Employee"
+    }
+
+]
+
+
+
+
+
+

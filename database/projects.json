@@ -1,0 +1,32 @@
+[
+	{
+		"id": "1",
+		"Project_Name": "Website Redesign",
+		"Department_Id": "1"
+	},
+	{
+		"id": "2",
+		"Project_Name": "Social Media Campaign",
+		"Department_Id": "2"
+	},
+	{
+		"id": "3",
+		"Project_Name": "Employee Training Program",
+		"Department_Id": "3"
+	},
+	{
+		"id": "4",
+		"Project_Name": "Mobile App Development",
+		"Department_Id": "1"
+	},
+	{
+		"id": "5",
+		"Project_Name": "Product Launch",
+		"Department_Id": "2"
+	},
+	{
+		"id": "6",
+		"Project_Name": "Recruitment Drive",
+		"Department_Id": "3"
+	}
+]

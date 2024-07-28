@@ -1,0 +1,173 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(uuid())
+  Name           String?
+  Surname        String?
+  Email          String?        @unique
+  IdNumber       String?        @unique
+  MobileNumber   String?        @unique
+  Address        String?
+  City           String?
+  ZipCode        String?
+  Province       String?
+  DateOfBirth    String?
+  MaritalStatus  String?
+  Gender         String?
+  Nationality    String?
+  EmployeeType   String?
+  NDTEmail       String?        @unique
+  Password       String?
+  departmentId   String?
+  departmentName String?
+  Role           String?        @default("Employee")
+  Position       String?        @default("N/A")
+  StartDate      String?
+  OfficeLocation String?
+  createdAt      DateTime       @default(now())
+  documents      Documents[]
+  LeaveRequest   LeaveRequest[]
+  otp            OTP[]
+  tableDetails   TableDetails[]
+  tableRows      TableRow[]
+  department     Department?    @relation(fields: [departmentId], references: [id])
+}
+
+model Documents {
+  id        String   @id @default(uuid())
+  url       String
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id              String      @id @default(uuid())
+  Project_Name    String      @unique
+  Project_Manager String
+  Client_Name     String
+  Description     String
+  Department_Id   String?
+  assignedMembers String[]
+  department      Department? @relation(fields: [Department_Id], references: [id])
+}
+
+model Department {
+  id              String    @id @default(uuid())
+  Department_Name String    @unique
+  projects        Project[]
+  users           User[]
+}
+
+model Task {
+  id            String   @id @default(uuid())
+  taskPerformed String
+  taskStatus    String
+  tableRowId    String
+  projectName   String?
+  tableRow      TableRow @relation(fields: [tableRowId], references: [id], onDelete: Cascade)
+}
+
+model TableDetails {
+  id              String     @id @default(uuid())
+  month           String
+  name            String
+  role            String
+  weeklyPeriod    String
+  projectManager  String
+  projectName     String
+  Approval_Status String
+  comments        String?
+  userId          String?
+  user            User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tableRows       TableRow[]
+}
+
+model TableRow {
+  id             String       @id @default(uuid())
+  weekday        String
+  typeOfDay      String
+  totalHours     Float
+  totalMinutes   Float
+  comment        String?
+  userId         String
+  tableDetailsId String
+  tableDetails   TableDetails @relation(fields: [tableDetailsId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks          Task[]
+}
+
+model AP {
+  id            String     @id @default(uuid())
+  property      String
+  contactPerson String
+  contactNo     String
+  email         String?
+  helpDesks     HelpDesk[] @relation("APHelpDesks")
+}
+
+model Student {
+  id            String     @id @default(uuid())
+  fullName      String
+  idNumber      String
+  studentNumber String
+  contactNumber String
+  email         String
+  institution   String
+  accommodation String
+  helpDesks     HelpDesk[] @relation("StudentHelpDesks")
+}
+
+model HelpDesk {
+  id           String   @id @default(uuid())
+  apId         String?
+  studentId    String?
+  date         String
+  callDuration String
+  campus       String
+  query        String
+  resolve      String
+  client       String
+  problem      String
+  status       String
+  callAgent    String
+  createdAt    DateTime @default(now())
+  ap           AP?      @relation("APHelpDesks", fields: [apId], references: [id], onDelete: Cascade)
+  student      Student? @relation("StudentHelpDesks", fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model LeaveRequest {
+  id             String   @id @default(uuid())
+  userId         String
+  fullName       String
+  email          String
+  phoneNumber    String
+  position       String
+  requestFor     String
+  leaveType      String
+  reason         String
+  date           String
+  approvalStatus String   @default("Pending")
+  comments       String   @default("No comments")
+  totalDays      Float?
+  documents      String[]
+  createdAt      DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model OTP {
+  id         String   @id @default(uuid())
+  userId     String
+  code       String
+  createdAt  DateTime @default(now())
+  expiryDate DateTime
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
