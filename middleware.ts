@@ -9,7 +9,7 @@ type Token = {
 	exp: string;
 };
 
-const allowedOrigins = ['https://nextjs-timesheet.vercel.app/']
+const allowedOrigins = ['https://d31msg5rv6t2vi.cloudfront.net/']
  
 const corsOptions = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
