@@ -12,7 +12,10 @@ export default {
     app.stack(function Site({ stack }) {
       const DATABASE_URL = new Config.Secret(stack, "DATABASE_URL");
       const site = new NextjsSite(stack, "site", {
-        bind: [DATABASE_URL],
+        environment: {
+          DATABASE_URL: process.env.DATABASE_URL!
+        },
+        bind: [DATABASE_URL]
       });
 
       stack.addOutputs({
